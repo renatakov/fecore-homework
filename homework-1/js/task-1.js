@@ -4,10 +4,9 @@
 
 // ------------------------------------------
 
-let s = prompt('Введіть натуральне число:  ');
-let sum;
-let num1 = Math.round(Math.random() * (s - 1) + 1);
-let num2 = s/num1;
-if(s % num1 === 0 ){
-  console.log(num1);
-}
+// let s = +prompt('Введіть натуральне число:  ');
+// let x = Math.round(Math.random()*100);
+// let sum;
+// if(s % x === 0){
+// console.log(x)
+// }
