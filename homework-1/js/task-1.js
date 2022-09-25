@@ -4,9 +4,14 @@
 
 // ------------------------------------------
 
-// let s = +prompt('Введіть натуральне число:  ');
-// let x = Math.round(Math.random()*100);
-// let sum;
-// if(s % x === 0){
-// console.log(x)
-// }
+let s = +prompt('Введіть натуральне число:  ');
+let sum;
+let i = 1;
+
+for(i; i <= s; i++){
+  if(s % i === 0 ){
+    console.log(i);
+  };
+  // if(i <= s){
+  // }
+};
