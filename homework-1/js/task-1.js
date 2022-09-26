@@ -5,13 +5,12 @@
 // ------------------------------------------
 
 let s = +prompt('Введіть натуральне число:  ');
-let sum;
+let sum = 0;
 let i = 1;
 
 for(i; i <= s; i++){
-  if(s % i === 0 ){
-    console.log(i);
-  };
-  // if(i <= s){
-  // }
+  if(s % i === 0){
+    sum += i;
+    console.log(sum)
+};
 };
