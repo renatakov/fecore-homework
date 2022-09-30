@@ -11,6 +11,6 @@
 // for(i; i <= s; i++){
 //   if(s % i === 0){
 //     sum += i;
-//     console.log(sum)
+//   };
 // };
-// };
+// console.log('Sum: ' + sum);
