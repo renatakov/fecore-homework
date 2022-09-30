@@ -10,3 +10,16 @@
 // Count : 355
 
 // -----------------------------------------------------
+
+// let c = +prompt('Enter number c: ');
+// let d = +prompt('Enter number d: ');
+// let j = 0;
+// console.log('Number c: ' + c);
+// console.log('Number d: ' + d);
+
+// for(let i = c; c <= d; i++){
+//   if((i**3 % 10) == 4 || (i**3 % 10) == 9){
+//     j++;
+//   }
+// }
+// console.log('Count: ' + j);
