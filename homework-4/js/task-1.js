@@ -9,9 +9,10 @@ let randomNumbers = parseInt(Math.random() * (num1 - num2) + num2)  ;
 
 
 
-if(randomNumbers < 0){
-console.log(randomNumbers + '?')
-} else{
-  console.log(randomNumbers);
+for(let i = 1;i <= 10; i++){
+    if(randomNumbers < 0){
+      console.log(randomNumbers + '?')
+    } else{
+      console.log(randomNumbers)
+    }
 }
-
