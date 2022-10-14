@@ -2,17 +2,21 @@
 //  Після кожного від’ємного числа потрібно виводити (впритул до числа) символ «?».
 
 // Наприклад : 2, -8?,17,24,-17?,14
-let num1 = -25;
-let num2 = 25;
 
-let randomNumbers = parseInt(Math.random() * (num1 - num2) + num2)  ;
+// var i, a;
+// for(i = 1; i <= 10; i++){
+//   a = -25;
+//   var b = 25;
+//   if(a>b){
+//     var c = a;
+//     a = b;
+//     b = c;
+//   }
+// a = Math.floor(Math.random() * (b - a + 1) + a)  ;
+// if(a>=0){
+//   console.log(a);
+// } else {
+//   console.log(String(a) + String('?'))
+// }
 
-
-
-for(let i = 1;i <= 10; i++){
-    if(randomNumbers < 0){
-      console.log(randomNumbers + '?')
-    } else{
-      console.log(randomNumbers)
-    }
-}
+// }
