@@ -3,3 +3,14 @@
 //  поки не введе порожній рядок або не натисне "Скасувати". Масив без дублікатів програма повинна
 // вивести в консоль.
 
+// let arr = [];
+// let elem;
+// do{
+// elem = +prompt('Element: ');
+// if(arr.includes(elem) || elem === '' || elem == null){
+//   continue;
+// } else{
+//   arr.push(elem)
+// }
+// } while (elem);
+// console.log('Array without dublicates: ' + arr)
