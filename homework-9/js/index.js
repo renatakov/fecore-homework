@@ -6,6 +6,7 @@
 const btn = document.querySelector("#firstBtn");
 const list = document.querySelector("#list");
 const input = document.querySelector("#firstInput");
+const h2 = document.querySelector('h2')
 
 let btnFunction = () => {
   list.innerHTML += `<li>${input.value}</li>`;
@@ -13,5 +14,5 @@ let btnFunction = () => {
 
 btn.addEventListener("click", btnFunction);
 input.addEventListener("keydown", (el) => {
-  console.log(el.key);
+  h2.innerHTML = `${el.key}`;
 });
