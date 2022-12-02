@@ -21,6 +21,7 @@ let genereteNotes = () => {
             `;
     });
   }
+  console.log(notesStore);
 };
 
 genereteNotes();
