@@ -1,6 +1,7 @@
 let btnsDelete = [];
 let btnsChange = [];
-
+let inputSearch = document.querySelector("#inputSearch");
+let btnSearch = document.querySelector("#btnSearch");
 let notesHtml = document.querySelector("#notes");
 let btnPost = document.querySelector("#btnPost");
 let inputs = {
@@ -100,6 +101,37 @@ let checkTimeFormat = (time) => {
   }
   return time;
 };
+
+// search
+
+let genereteNotesSearch = (notes) => {
+  notesHtml.innerHTML = null
+  notes.map((el,index) => {
+      if(!el.statusDelete){
+      notesHtml.innerHTML += `
+      <div class="noteBlock" id="note${index}" style="background:${el.color}">
+          <h2>${el.title}</h2>
+          <p id="noteText${index}">${el.text}</p>
+          <p class="time">${el.timeCreated.hours}:${el.timeCreated.minutes}:${el.timeCreated.seconds}</p>
+      </div>
+      `
+      }
+  })
+}
+
+let searchText = (notes, notesStore) => {
+  let inputVal = inputSearch.value;
+  if (inputVal != "") {
+    console.log(inputVal);
+    for (let i = 0; i <= notesStore.length-1; i++) {
+      if(inputVal === notesStore[i]){
+        console.log(notesStore[i])
+      }
+    }
+  }
+};
+
+btnSearch.addEventListener("click", searchText);
 
 let btnPostClick = () => {
   let timeNow = checkTimeFormat(getCurrentTime());

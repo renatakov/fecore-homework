@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h3 id="time">Timer</h3>
+  <input placeholder="Write seconds" id="inputSeconds">
+  <input placeholder="Write minutes" id="inputMinutes">
+  <input placeholder="Write hours" id="inputHours">
+  <button id="btnStart">Start timer</button>
+  <div class="clock">
+    <span id="hoursSpan"></span>
+    <span id="minutesSpan"></span>
+    <span id="secondsSpan"></span>
+  </div>
+  <div id="watch">
+    <h3>Clock</h3>
+    <span id="seconds"></span>
+    <span id="minutes"></span>
+    <span id="hours"></span>
+  </div>
+  <style>
+    body{
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    input{
+      width: 18%;
+      height: 50px;
+      margin-bottom: 2rem;
+    }
+    button{
+      width: 15%;
+      height: 50px;
+      font-size: 18px;
+    }
+    </style>
+    <script src="./js/index.js"></script>
+</body>
+</html>
