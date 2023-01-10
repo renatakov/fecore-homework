@@ -1,9 +1,9 @@
 let btnsDelete = [];
 let btnsChange = [];
-let inputSearch = document.querySelector("#inputSearch");
-let btnSearch = document.querySelector("#btnSearch");
+
 let notesHtml = document.querySelector("#notes");
 let btnPost = document.querySelector("#btnPost");
+let inputSearch = document.querySelector("#inputSearch");
 let inputs = {
   title: document.querySelector("#inputTitle"),
   text: document.querySelector("#inputText"),
@@ -20,6 +20,7 @@ let inputs = {
     }
   },
 };
+let statusWindow = "open notes";
 let notesStore = [
   {
     id: 1,
@@ -34,7 +35,7 @@ let notesStore = [
   },
 ];
 
-let genereteNotes = () => {
+let genereteNotes = (noteStore = notesStore) => {
   notesHtml.innerHTML = null;
   console.log(notesStore);
   notesStore.map((el, index) => {
@@ -44,7 +45,7 @@ let genereteNotes = () => {
       <h2>${el.title}</h2>
       <p>${el.text}</p>
       <p id='noteText${index}' class='time'>${el.timeCreated.hours}:${el.timeCreated.minutes}:${el.timeCreated.seconds}</p>
-      <button id='btnChange${index}'><img class='icon' alt='change' src='/homework-10/book-svgrepo-com.svg'>
+      <button id='btnChange${index}'><img class='icon' alt='change' src='../png-clipart-floppy-disc-computer-icons-iconfinder-desktop-floppy-save-icon-miscellaneous-blue-thumbnail.png'>
       </button>
       <button class="btnDelete" id="btnDel${index}">Delete</button>
       </div>
@@ -67,7 +68,7 @@ let genereteNotes = () => {
         `;
         btnsChange[
           i
-        ].innerHTML = `<button id='btnSave${i}'><img class='icon' alt='change' src='/homework-10/png-clipart-floppy-disc-computer-icons-iconfinder-desktop-floppy-save-icon-miscellaneous-blue-thumbnail.png'></button>`;
+        ].innerHTML = `<button id='btnSave${i}'><img class='icon' alt='change' src='/lesson-7/png-clipart-floppy-disc-computer-icons-iconfinder-desktop-floppy-save-icon-miscellaneous-blue-thumbnail.png'></button>`;
         document.querySelector(`#btnSave${i}`).addEventListener("click", () => {
           let newTxt = document.querySelector(`#textarea${i}`).value;
           if (newTxt.length != 0) {
@@ -102,37 +103,6 @@ let checkTimeFormat = (time) => {
   return time;
 };
 
-// search
-
-let genereteNotesSearch = (notes) => {
-  notesHtml.innerHTML = null
-  notes.map((el,index) => {
-      if(!el.statusDelete){
-      notesHtml.innerHTML += `
-      <div class="noteBlock" id="note${index}" style="background:${el.color}">
-          <h2>${el.title}</h2>
-          <p id="noteText${index}">${el.text}</p>
-          <p class="time">${el.timeCreated.hours}:${el.timeCreated.minutes}:${el.timeCreated.seconds}</p>
-      </div>
-      `
-      }
-  })
-}
-
-let searchText = (notes, notesStore) => {
-  let inputVal = inputSearch.value;
-  if (inputVal != "") {
-    console.log(inputVal);
-    for (let i = 0; i <= notesStore.length-1; i++) {
-      if(inputVal === notesStore[i]){
-        console.log(notesStore[i])
-      }
-    }
-  }
-};
-
-btnSearch.addEventListener("click", searchText);
-
 let btnPostClick = () => {
   let timeNow = checkTimeFormat(getCurrentTime());
   // console.log(time)
@@ -159,7 +129,61 @@ let btnPostClick = () => {
     alert("Pls, write title or text");
   }
 };
-
 genereteNotes();
+let genereteNotesSearch = (notes) => {
+  console.log(notes);
+  notesHtml.innerHTML = null;
+  notes.map((el, index) => {
+    if (!el.statusDelete) {
+      notesHtml.innerHTML += `
+      <div class="noteBlock" id="note${index}" style="background:${el.color}">
+      <h2>${el.title}</h2>
+      <p>${el.text}</p>
+      <p id='noteText${index}' class='time'>${el.timeCreated.hours}:${el.timeCreated.minutes}:${el.timeCreated.seconds}</p>
+      <button id='btnChange${index}'><img class='icon' alt='change' src='/lesson-7/book-svgrepo-com.svg'>
+      </button>
+      <button class="btnDelete" id="btnDel${index}">Delete</button>
+      </div>
+      `;
+    }
+  });
+};
 
+let startSearch = () => {
+  if (inputSearch.value.length !== 0) {
+    notesHtml.innerHTML = null;
+    let noteStoreToSearch = [];
+    notesStore.map((el) => {
+      if (!el.statusDelete) {
+        noteStoreToSearch.push(el.text);
+      }
+    });
+    let resultSearch = searchText(
+      inputSearch.value,
+      noteStoreToSearch,
+      notesStore,
+    );
+    console.log(resultSearch);
+    if (resultSearch.length === 0) {
+      noteStoreToSearch = [];
+      notesStore.map((el) => {
+        if (!el.statusDelete) {
+          noteStoreToSearch.push(el.title);
+        }
+      });
+      resultSearch = searchText(
+        inputSearch.value,
+        noteStoreToSearch,
+        notesStore,
+      );
+      genereteNotesSearch(resultSearch);
+      console.log(resultSearch);
+    }
+  } else {
+    genereteNotesSearch(resultSearch);
+  }
+};
+
+inputSearch.addEventListener("change", startSearch);
 btnPost.addEventListener("click", btnPostClick);
+
