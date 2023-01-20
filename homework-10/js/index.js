@@ -68,7 +68,7 @@ let genereteNotes = (noteStore = notesStore) => {
         `;
         btnsChange[
           i
-        ].innerHTML = `<button id='btnSave${i}'><img class='icon' alt='change' src='/lesson-7/png-clipart-floppy-disc-computer-icons-iconfinder-desktop-floppy-save-icon-miscellaneous-blue-thumbnail.png'></button>`;
+        ].innerHTML = `<button id='btnSave${i}'><img class='icon' alt='change' src='../png-clipart-floppy-disc-computer-icons-iconfinder-desktop-floppy-save-icon-miscellaneous-blue-thumbnail.png'></button>`;
         document.querySelector(`#btnSave${i}`).addEventListener("click", () => {
           let newTxt = document.querySelector(`#textarea${i}`).value;
           if (newTxt.length != 0) {
@@ -140,7 +140,7 @@ let genereteNotesSearch = (notes) => {
       <h2>${el.title}</h2>
       <p>${el.text}</p>
       <p id='noteText${index}' class='time'>${el.timeCreated.hours}:${el.timeCreated.minutes}:${el.timeCreated.seconds}</p>
-      <button id='btnChange${index}'><img class='icon' alt='change' src='/lesson-7/book-svgrepo-com.svg'>
+      <button id='btnChange${index}'><img class='icon' alt='change' src='../book-svgrepo-com.svg'>
       </button>
       <button class="btnDelete" id="btnDel${index}">Delete</button>
       </div>
