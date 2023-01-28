@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-<body id="body">
-  <h2></h2>
-  <h1>Notes</h1>
-  <input placeholder="Search" id="inputSearch">
+<body>
+    <h1>Notes</h1>
+    <input id="inputSearch"placeholder="Search">
+    <h2></h2>
+    <div id="notes"></div>
 
-  <div id="notes"></div>
-  <input id="inputTitle" placeholder="Write title">
-  <input id="inputText" placeholder="Write text">
-  <input type="color" name="" id="inputColor">
-  <button id="btnPost" >Post</button>
-  <script src="./search/index.js"></script>
-  <script src="./js/index.js"></script>
+    <input id="inputTitle" placeholder="Write title">
+    <input id="inputText" placeholder="Write text">
+    <button id="btnPost" >Post</button>
+    <input id="inputColor" type="color">
+    <style>
+        .noteBlock{
+            margin-bottom: 10px;
+            border: 2px solid black;
+        }
+        .time{
+            font-size: 14px;
+        }
+        .icon{
+            width:32px;
+        }
+        .btnChange{
+            width: 30px;
+            height: 30px;
+            background: url('http://localhost:3000/public/img/png-clipart-floppy-disc-computer-icons-iconfinder-desktop-floppy-save-icon-miscellaneous-blue-thumbnail.png');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border:none;
+        }
+        .btnSave{
+            width: 30px;
+            height: 30px;
+            background: url('http:localhost:3000/public/img/book-svgrepo-com.svg');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            border:none;
+        }
+    </style>
 </body>
+<script src="http://localhost:3000/public/search/index.js"></script>
+<script src="http://localhost:3000/public/js/index.js"></script>
 </html>
